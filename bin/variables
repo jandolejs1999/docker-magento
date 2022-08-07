@@ -13,4 +13,4 @@ export MAGENTO_DIRECTORY=${APP_DIRECTORY}/magento
 
 export NUXT_DIRECTORY=${APP_DIRECTORY}/nuxt
 
-export CLI_XDEBUG_SERVER_NAME=magento.local
+export CLI_XDEBUG_SERVER_NAME=magento.jandolejs.cz

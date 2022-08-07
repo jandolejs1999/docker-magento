@@ -31,12 +31,12 @@ __Currently supported versions of Magento__
 - Install Docker and docker-compose
 - (Windows) Install Git bash and use it to run project shell commands located in bin folder
 - Add following to etc/hosts
-	- 127.0.0.1	magento.local
-	- 127.0.0.1 nuxt.magento.local
-	- 127.0.0.1	kibana.magento.local
-	- 127.0.0.1	redis.magento.local
-	- 127.0.0.1	rabbitmq.magento.local
-	- 127.0.0.1	adminer.magento.local
+	- 127.0.0.1	magento.jandolejs.cz
+	- 127.0.0.1 nuxt.magento.jandolejs.cz
+	- 127.0.0.1	kibana.magento.jandolejs.cz
+	- 127.0.0.1	redis.magento.jandolejs.cz
+	- 127.0.0.1	rabbitmq.magento.jandolejs.cz
+	- 127.0.0.1	adminer.magento.jandolejs.cz
 
 ### Create new Magento project
 
@@ -46,7 +46,7 @@ __Currently supported versions of Magento__
 	- Requires Magento version as an argument
 	- Keys can be found in https://marketplace.magento.com/customer/accessKeys/ and you can opt-in to store your keys (login and password) to /home/dockeruser/.composer/auth.json, which is bind mounted to images/php-fpm/auth.json
 	- Magento default settings - these can be edited in bin/new-project/magento
-		- ```base-url=http://magento.local```
+		- ```base-url=http://magento.jandolejs.cz```
 		- ```db-host=mysql```
 		- ```db-name=magento```
 		- ```db-user=magento```
@@ -87,13 +87,13 @@ __Currently supported versions of Magento__
 
 1) Run ```bin/new-project/vsf```
  	- Select Magento 2 integration
-	- Running this command will install Vue Storefront 2 project to nuxt folder and start development server on http://nuxt.magento.local
+	- Running this command will install Vue Storefront 2 project to nuxt folder and start development server on http://nuxt.magento.jandolejs.cz
 		- You can start VSF 2 with ```bin/node yarn dev```
 		- VSF 2 documentation https://docs.vuestorefront.io/v2/
 
 ### Configure Nginx and Magento logs to be viewed in Kibana
 
-1) Go to http://kibana.magento.local/app/management/kibana/indexPatterns in your browser
+1) Go to http://kibana.magento.jandolejs.cz/app/management/kibana/indexPatterns in your browser
 2) If Magento installation was successful, then there should be "You have data in Elasticsearch. Now, create an index pattern." title on the page and "Create index pattern" button. Click on it.
 
 <img src="https://user-images.githubusercontent.com/24256329/126873547-bc92a3fc-bb65-421d-be27-e538b21bf4f5.png" alt="Create index pattern" width="250px">
@@ -106,7 +106,7 @@ __Currently supported versions of Magento__
 
 <img src="https://user-images.githubusercontent.com/24256329/126874296-5d9cb6e6-2477-4686-b0b4-a8bb0a8fc795.png" alt="@timestamp" width="250px">
 
-5) All done. You should be able to analyse your logs on http://kibana.magento.local/app/discover (if not, then refresh magento.local in order to log something).
+5) All done. You should be able to analyse your logs on http://kibana.magento.jandolejs.cz/app/discover (if not, then refresh magento.jandolejs.cz in order to log something).
 
 <img src="https://user-images.githubusercontent.com/24256329/126874474-54594eb2-3b41-4e24-ba18-528aef0c1859.png" alt="Analyse logs" width="250px">
 
@@ -118,7 +118,7 @@ Kibana should now be configured to display 5 types of logs: nginx error log (```
 
 1) Run ```bin/xdebug/mode debug```
 	- You can turn off Xdebug by running ```bin/ide/xdebug off``` and turn it on again with ```bin/ide/xdebug debug```, you can also use this command to set all other Xdebug modes (https://xdebug.org/docs/all_settings#mode)
-2) PhpStorm should offer you automatic setup after you add breakpoint and make http request (open magento.local in a browser) and correct settings should be similar to this:
+2) PhpStorm should offer you automatic setup after you add breakpoint and make http request (open magento.jandolejs.cz in a browser) and correct settings should be similar to this:
 
 Preferences - PHP - Debug
 
@@ -132,7 +132,7 @@ Preferences - PHP - Servers
 
 1) Add breakpoints (via IDE)
 
-2) RUN ```bin/xdebug/cli <FILE_PATH> <SERVER_NAME=magento.local>```
+2) RUN ```bin/xdebug/cli <FILE_PATH> <SERVER_NAME=magento.jandolejs.cz>```
    - It is relative to magento folder, run ```bin/xdebug/cli pub/index.php``` to debug ```magento/pub/index.php``` 
    - SERVER_NAME is optional
 
@@ -176,7 +176,7 @@ Preferences - PHP - Servers
     - Runs supplied command within specified container (service)
 - ``` bin/xdebug/mode <MODE> ```
     - Sets xdebug.mode to php.ini within php-fpm container and restarts it
-- ``` bin/xdebug/cli<FILE_PATH> <SERVER_NAME=magento.local> ```
+- ``` bin/xdebug/cli<FILE_PATH> <SERVER_NAME=magento.jandolejs.cz> ```
     - Runs specified script (FILE_PATH) and then stops at defined breakpoint (via IDE) 
     - It is relative to magento folder, run ```bin/xdebug/cli pub/index.php``` to debug ```magento/pub/index.php``` 
     - SERVER_NAME is optional
